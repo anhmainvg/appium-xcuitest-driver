@@ -155,35 +155,35 @@ describe('Safari - coordinate conversion -', function () {
             await el.click();
 
             let title;
-            try {
-              await retryInterval(10, 1000, async function () {
-                title = await driver.title();
-                title.should.eql('I am another page title');
-              });
-            } catch (err) {
-              console.log('\n\nWrong title found:', title); // eslint-disable-line
-            } finally {
-              console.log('\n\nDone with checking for title after new page opened'); // eslint-disable-line
-            }
+            // try {
+            await retryInterval(10, 1000, async function () {
+              title = await driver.title();
+              title.should.eql('I am another page title');
+            });
+            // } catch (err) {
+            //   console.log('\n\nWrong title found:', title); // eslint-disable-line
+            // } finally {
+            //   console.log('\n\nDone with checking for title after new page opened'); // eslint-disable-line
+            // }
           });
 
           it('should be able to tap on an element', async function () {
             let contexts = await driver.contexts();
-            let context = await driver.currentContext();
+            // let context = await driver.currentContext();
             console.log('\n\nBEFORE LOADING PAGE'); // eslint-disable-line
             console.log(contexts); // eslint-disable-line
-            console.log(context); // eslint-disable-line
+            // console.log(context); // eslint-disable-line
 
             await loadPage(driver, GUINEA_PIG_PAGE);
 
             let el = await driver.elementByLinkText(PAGE_3_LINK);
             await el.click();
 
-            contexts = await driver.contexts();
-            context = await driver.currentContext();
-            console.log('\n\nAFTER CLICKING LINK'); // eslint-disable-line
-            console.log(contexts); // eslint-disable-line
-            console.log(context); // eslint-disable-line
+            // contexts = await driver.contexts();
+            // context = await driver.currentContext();
+            // console.log('\n\nAFTER CLICKING LINK'); // eslint-disable-line
+            // console.log(contexts); // eslint-disable-line
+            // console.log(context); // eslint-disable-line
 
             await spinTitleEquals(driver, PAGE_3_TITLE, SPIN_RETRIES);
 
